@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+</head>
+<body>
+    <h1>experimento05</h1>
+    <input type="number" name="hora" id="hora" placeholder="coloque aqui as horas " onchange="periodo()">
+    <button id="hora">Ver Hora</button>
+    <div>
+        <p>HORA: <span id="hora"></span></p>       
+    </div>
+   <script type="text/javascript">
+        periodo();
+        function periodo() 
+        {
+            var entrada_num1 = document.getElementById("hora")
+            var resultado = document.querySelector("horario")
+            today=new Date();
+            h = today.getHours()
+            m=today.getminutes();
+
+            if (entrada_num1.value.length){
+                h=Number(entrada_num1.value)
+
+            }
+
+            resultado.innerHTML = `<b>${h}:${m}</b>`
+        
+        }
+        function hora(){
+            var consulte_hora = document.getElementById('pedir').value
+            if (consulte_hora>= 6 && consulte_hora<=12){
+                document.body.style.backgroundImage="url(../)"
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
