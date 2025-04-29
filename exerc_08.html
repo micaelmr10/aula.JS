@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+        input[type="button"]{
+            background-color: green;
+            color: white;
+         
+        }
+        
+    </style>
 
 </head>
 <body>
@@ -15,14 +23,27 @@
 
     <script>
         function adicionar(){
-            console.log("Gerar Lista")
-            document.getElementById('coisas').innerHTML
-            let tag_ul = document.getElementById("coisas")
-            console.log(tag_ul)
+            console.log("Gerar Lista");
 
+            let inputTarefa = document.getElementById('tarefas');
+            let texto = inputTarefa.value.trim();
+
+            if (texto != ""){
+                let tag_ul = document.getElementById('coisas')
+                let tag_li = document.createElement('li')
+                tag_li.innerHTML = texto;
+                tag_ul.appendChild(tag_li);
+
+                inputTarefa.value = "";
+            } else{
+                alert("Digite uma tarefa antes de adicionar");
+            }
+            
+            }
+            document.getElementById('coisas').innerHTML
             let tag_li = document.createElement('li')
             tag_li.innerHTML = ('tarefa')
-            tag_ul.appendChild(tag_li)
+            tag_li.appendChild(tag_li)
 
-        }
+        
     </script>
