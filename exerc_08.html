@@ -15,9 +15,10 @@
 
 </head>
 <body>
-    <h1>experimento08 lista de tarefas</h1> 
+    <h1>Lista de Tarefas</h1> 
     <input type="text" name="tarefas" id="tarefas" placeholder="Digite a primeira tarefa">
     <input type="button" value="Adicionar" onclick="adicionar() ;">
+    
     <ul id="coisas">     
     </ul>
 
@@ -34,16 +35,30 @@
                 tag_li.innerHTML = texto;
                 tag_ul.appendChild(tag_li);
 
-                inputTarefa.value = "";
+                let botaoExcluir = document.createElement('button');
+                botaoExcluir.textcontent = "Excluir";
+                botaoExcluir.style.marginLeft = "5px";
+                botaoExcluir.onclick = function(){
+                    tag_ul.removeChild(tag_li);
+                };
+
+                tag_li.appendChild(botaoExcluir);
+                tag_ul.appendChild(tag_li);
+
+                let agora = new Date();
+                let dataHora = agora.toLocaleString();
+                tag_li.innerHtml += "<small>("+ dataHora + ")<small>";
+
+               
             } else{
                 alert("Digite uma tarefa antes de adicionar");
-            }
+            
             
             }
             document.getElementById('coisas').innerHTML
             let tag_li = document.createElement('li')
             tag_li.innerHTML = ('tarefa')
             tag_li.appendChild(tag_li)
-
+        }
         
     </script>

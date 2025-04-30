@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scaled=1.0">
+        <title>Tabuada</title>
+    </head>
+    <body>
+        <h1>Tabuada</h1>
+        <input type="number" id="numero">
+        <input type="button" value="Obter tabuada" onclick="gerar()">
+        <ul id="conteudo_tabuada">
+        </ul>
+
+        <script>
+            function gerar(){
+                console.log("GERAR TABUADA");
+                document.getElementById('conteudo_tabuada').innerHTML = ''
+                let num = parseInt(document.getElementById("numero").value)
+                console.log(num);
+                let tag_ul = document.getElementById("conteudo_tabuada");
+                console.log(tag_ul);
+ 
+                for (let i=0; i<=10; i++){
+                    let multi = num*i
+                    console.log(multi);
+                    console.log(i);
+                    let tag_li = document.createElement('li');
+                    tag_li.innerHTML = `${num}x${i}=${multi}` 
+                    tag_ul.appendChild(tag_li)
+                }
+            }
+        </script>
+    </body>
+</html>
