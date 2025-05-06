@@ -1,64 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Lista de Tarefas</title>
     <style>
-        input[type="button"]{
+        input[type="button"] {
             background-color: green;
             color: white;
-         
         }
-        
     </style>
-
 </head>
 <body>
     <h1>Lista de Tarefas</h1> 
-    <input type="text" name="tarefas" id="tarefas" placeholder="Digite a primeira tarefa">
-    <input type="button" value="Adicionar" onclick="adicionar() ;">
-    
-    <ul id="coisas">     
-    </ul>
+    <input type="text" id="tarefas" placeholder="Digite a tarefa">
+    <input type="button" value="Adicionar" onclick="adicionar()">
+
+    <ul id="coisas"></ul>
 
     <script>
-        function adicionar(){
-            console.log("Gerar Lista");
-
+        function adicionar() {
             let inputTarefa = document.getElementById('tarefas');
             let texto = inputTarefa.value.trim();
 
-            if (texto != ""){
-                let tag_ul = document.getElementById('coisas')
-                let tag_li = document.createElement('li')
-                tag_li.innerHTML = texto;
-                tag_ul.appendChild(tag_li);
+            if (texto !== "") {
+                let tag_ul = document.getElementById('coisas');
+                let tag_li = document.createElement('li');
+                tag_li.textContent = texto;
 
+                
+                let btnFinalizar = document.createElement('button');
+                btnFinalizar.textContent = 'Finalizar';
+                btnFinalizar.style.marginLeft = '10px';
+                btnFinalizar.onclick = function () {
+                    const agora = new Date().toLocaleString();
+                    tag_li.innerHTML = `${texto} - Finalizado em: ${agora}`;
+                };
+
+                
                 let botaoExcluir = document.createElement('button');
-                botaoExcluir.textcontent = "Excluir";
+                botaoExcluir.textContent = "Excluir";
                 botaoExcluir.style.marginLeft = "5px";
-                botaoExcluir.onclick = function(){
+                botaoExcluir.onclick = function () {
                     tag_ul.removeChild(tag_li);
                 };
 
+                tag_li.appendChild(btnFinalizar);
                 tag_li.appendChild(botaoExcluir);
                 tag_ul.appendChild(tag_li);
 
-                let agora = new Date();
-                let dataHora = agora.toLocaleString();
-                tag_li.innerHtml += "<small>("+ dataHora + ")<small>";
-
-               
-            } else{
+                inputTarefa.value = ""; 
+            } else {
                 alert("Digite uma tarefa antes de adicionar");
-            
-            
             }
-            document.getElementById('coisas').innerHTML
-            let tag_li = document.createElement('li')
-            tag_li.innerHTML = ('tarefa')
-            tag_li.appendChild(tag_li)
         }
-        
     </script>
+</body>
+</html>
